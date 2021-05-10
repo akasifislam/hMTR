@@ -23,33 +23,8 @@ Route::get('/', function () {
 });
 
 Route::get('/projects', function () {
-    $project1 = Project::create([
-        'title' => 'project One',
-    ]);
-    $project2 = Project::create([
-        'title' => 'project Two',
-    ]);
-    $user1 = User::create([
-        'name' => "admin1",
-        'email' => 'admin1@mail.com',
-        'password' => Hash::make('admin1mail')
-    ]);
-    $user2 = User::create([
-        'name' => "admin2",
-        'email' => 'admin2@mail.com',
-        'password' => Hash::make('admin2mail')
-    ]);
-    $user3 = User::create([
-        'name' => "admin3",
-        'email' => 'admin3@mail.com',
-        'password' => Hash::make('admin3mail')
-    ]);
-    $project1->users()->attach($user1);
-    $project1->users()->attach($user2);
-    $project1->users()->attach($user3);
-
-    $project2->users()->attach($user1);
-    $project2->users()->attach($user3);
+    $project1 = User::find(3);
+    return $project1->projects;
 });
 
 Auth::routes();

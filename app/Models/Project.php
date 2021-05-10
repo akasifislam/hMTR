@@ -11,11 +11,19 @@ class Project extends Model
 
     protected $guarded = ['id'];
 
+    public function tasks()
+    {
+        return $this->hasManyThrough(
+            Task::class,
+            User::class,
+            'project_id', // forign key in user table
+            'user_id',      // forign key in task table
+            'id',           // local table in project table
+        );
+    }
 
     public function users()
     {
         return $this->belongsToMany(User::class);
     }
-
-    
 }
