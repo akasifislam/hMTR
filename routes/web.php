@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Post;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
+use App\Models\Video;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -21,10 +23,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/abcd', function () {
 
-Route::get('/projects', function () {
-    $project = Project::find(2);
-    return $project->tasks; 
+    $video = Video::find(1);
+    return $video->comments;
 });
 
 Auth::routes();
