@@ -15,10 +15,11 @@ class Project extends Model
     {
         return $this->hasManyThrough(
             Task::class,
-            User::class,
+            Team::class,
             'project_id', // forign key in user table
             'user_id',      // forign key in task table
             'id',           // local table in project table
+            'user_id',
         );
     }
 

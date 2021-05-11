@@ -23,8 +23,8 @@ Route::get('/', function () {
 });
 
 Route::get('/projects', function () {
-    $project1 = User::find(3);
-    return $project1->projects;
+    $project = Project::find(2);
+    return $project->tasks; 
 });
 
 Auth::routes();
